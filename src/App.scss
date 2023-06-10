@@ -1,0 +1,558 @@
+/* Custom Fonts */
+
+@font-face {
+    font-family: 'CrimsonPro-Light';
+    src: url('./assets/font/CrimsonPro-Light.ttf');
+}
+
+@font-face {
+    font-family: 'CrimsonPro-LightItalic';
+    src: url('./assets/font/CrimsonPro-LightItalic.ttf');
+}
+
+@font-face {
+    font-family: 'CrimsonPro-Regular';
+    src: url('./assets/font/CrimsonPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'CrimsonPro-MediumItalic';
+    src: url('./assets/font/CrimsonPro-MediumItalic.ttf');
+}
+
+/* Variables */
+
+$background-color: #E5DCC4;
+$banner-color: #6C5737;
+
+$body-font: 'CrimsonPro-Light', sans-serif;
+$title-font: 'CrimsonPro-Regular', sans-serif;
+$title-font-italic: 'CrimsonPro-LightItalic';
+
+$title-font-size: 70px;
+$title-font-size-s: 45px;
+$body-font-size: 27px;
+$body-font-size-s: 20px;
+
+$title-font-size-cell: 36px;
+$title-font-size-s-cell: 30px;
+$body-font-size-cell: 21px;
+$body-font-size-s-cell: 17px;
+
+$border-style: solid #000 3px;
+
+$cell-padding: 0 30px;
+
+/* Default CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+    font-family: $body-font !important;
+    background-color: $background-color !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+// Preloader
+
+.preloader {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background-color;
+    opacity: 0;
+    transition: opacity 2s ease;
+    pointer-events: none;
+    z-index: 999999;
+
+    &.active {
+        opacity: 1;
+
+        .logo {
+            animation: fadeAndBlur 2s ease forwards;
+        }
+    }
+
+    .logo {
+        background-image: url('./assets/img/logo-bk.svg');
+        width: 100px;
+        height: 50px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeAndBlur {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+// Navbar
+
+.navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 60px;
+    background-color: $banner-color;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5vw !important;
+
+    &.open {
+        .navbar-toggle {
+            background-color: transparent;
+        }
+
+        .navbar-links {
+            opacity: 0.7;
+            pointer-events: auto;
+        }
+    }
+
+    .navbar-toggle {
+        cursor: pointer;
+
+        svg {
+            font-size: 27px;
+            color: #333;
+        }
+    }
+
+    .navbar-toggle svg:hover {
+        color: $background-color;
+        transition: all 0.5s;
+    }
+
+    .navbar-links {
+        position: absolute;
+        top: 75px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 200px;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+
+        a {
+            display: block;
+            padding: 5px 10px;
+            color: #000;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            opacity: 0.7;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .navbar-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 10px;
+
+        img {
+            height: 33px;
+            margin-top: 10px;
+        }
+    }
+
+    .navbar-instagram-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
+        svg {
+            font-size: 30px;
+            color: #000;
+        }
+    }
+
+    .navbar-instagram-link svg:hover {
+        color: $background-color;
+        transition: all 0.5s;
+    }
+}
+
+
+
+/* Banner */
+
+.banner {
+    border-bottom: $border-style;
+
+    .banner-block {
+        background-color: $banner-color;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 0;
+    }
+
+    .icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon-wrapper {
+        margin: 30px 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon {
+        width: 250px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .icon-caption {
+        margin-top: 7px;
+        text-align: center;
+        font-size: $body-font-size;
+        color: $background-color;
+    }
+
+    .banner-text {
+        padding: 40px 0 60px 0;
+        line-height: 1.3;
+
+        p {
+            font-size: $body-font-size;
+            padding-top: 20px;
+        }
+
+        span {
+            font-family: 'CrimsonPro-MediumItalic';
+        }
+    }
+}
+
+//Collapsibles
+
+.collapsibles {
+    .collapsible {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .item {
+        width: 100%;
+        border-bottom: $border-style;
+        overflow: hidden;
+        transition: height 0.3s ease;
+        margin: 0 !important;
+
+        &.active {
+            height: auto;
+
+            .item-content {
+                max-height: 1000000px;
+                opacity: 1;
+            }
+        }
+
+        .item-header {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+
+            h2 {
+                margin: 0;
+                font-family: 'CrimsonPro-Regular';
+                font-size: $title-font-size;
+            }
+        }
+
+        .item-content {
+            padding-left: 0 !important;
+            padding-top: 50px;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+    }
+}
+
+// Marketplace+Events
+
+.intro {
+    .block {
+        padding: 20px 0;
+        margin-bottom: 20px;
+
+        .block-content {
+            padding-right: 20px;
+
+            h2 {
+                font-family: $title-font-italic;
+                font-size: $title-font-size-s;
+                margin-bottom: 50px;
+            }
+
+            p {
+                font-size: $body-font-size-s;
+            }
+        }
+
+        .block-image {
+            text-align: right;
+
+            .img-lowfi{
+                display: inline-block;
+                padding-top: 10px !important;
+                margin-bottom: -40px !important;
+            }
+
+            img {
+                width: 100%;
+                max-width: 600px;
+                height: auto;
+            }
+           
+        }
+    }
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.carousel-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .carousel-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &.active {
+            opacity: 1;
+        }
+
+        .image-description {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            text-align: right;
+            color: #000;
+            font-size: 16px;
+        }
+    }
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #ccc;
+        border-radius: 50%;
+        margin: 0 4px;
+        cursor: pointer;
+
+        &.active {
+            background-color: #000;
+            opacity: 0.5;
+        }
+    }
+}
+
+
+/* Contacts */
+.contacts {
+    padding: 50px 0;
+
+    a {
+        color: black;
+        font-family: $title-font-italic;
+        font-size: 50px;
+    }
+
+    a:hover {
+        color: $banner-color;
+    }
+}
+
+//    Footer
+.footer {
+    p {
+        padding-top: 200px;
+        font-size: $body-font-size ;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    .navbar .navbar-logo img {
+        height: 25px;
+    }
+
+    .banner .banner-block {
+        min-height: 42vh;
+    }
+
+    .banner .icon-wrapper{
+        width: 40px;
+        margin: 5px 36px;
+        
+        img{
+            width: 100px;
+        }
+        .icon-caption{
+            font-size: $body-font-size-s-cell;
+        }
+
+}
+    .banner .banner-text {
+        padding: 30px;
+    }
+
+    .banner .banner-text p {
+        font-size: $body-font-size-cell;
+        padding-top: 10px;
+    }
+
+
+    .collapsibles .item {
+        .item-header h2 {
+            font-size: $title-font-size-cell;
+            padding: $cell-padding;
+        }
+
+        .item-content {
+            padding-top: 0;
+        }
+
+        .row>* {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .intro .block {
+            padding: 5px 0;
+
+            .block-content {
+                padding: $cell-padding;
+
+                h2 {
+                    font-size: $title-font-size-s-cell;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    font-size: $body-font-size-s-cell;
+                }
+
+                .block-image {
+                    padding-left: 30px !important;
+                }
+
+            }
+        }
+    }
+
+    .carousel {
+        height: 400px;
+
+        .carousel-image {
+            .image-description {
+                font-size: 12px;
+                bottom: -32px;
+            }
+        }
+    }
+
+    .contacts {
+        padding: 40px 10px 30px 30px !important;
+
+        a {
+            font-size: 29px;
+        }
+    }
+
+    .footer p {
+        padding-top: 120px;
+        padding-left: 20px;
+        font-size: $body-font-size-cell;
+    }
+}
