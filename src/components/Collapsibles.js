@@ -10,45 +10,47 @@ export const Collapsibles = () => {
 
   const handleClick = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
-    scrollRef.current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    // scrollRef.current.scrollIntoView({
+    //   behavior: 'smooth',
+    //   block: 'start',
+    // });
   };
 
   const items = [
     {
       title: '01 Online Marketplace',
       content: <Marketplace />,
-      id:"marketplace",
+      id: "marketplace",
     },
     {
       title: '02 Offline Events',
       content: <Events />,
-      id:"events"
+      id: "events"
     },
     {
       title: '03 Contact Us',
       content: <Contact />,
-      id:"contact"
+      id: "contact"
     },
   ];
 
   return (
-    <div className="collapsibles">
+    <div className="collapsibles" id="collaspsibles">
       <div className="collapsible" ref={scrollRef} >
         {items.map((item, index) => (
           <div
             className={`item ${activeIndex === index ? 'active' : ''}`}
             key={index}
           >
-            <div
+            <a
               className="item-header container"
+              href='#marketplace'
               onClick={() => handleClick(index)}
               id={item.id}
+              style={{ color: "black" }}
             >
               <h2>{item.title}</h2>
-            </div>
+            </a>
             {activeIndex === index && (
               <div className="item-content container" >
                 <div>{item.content}</div>
