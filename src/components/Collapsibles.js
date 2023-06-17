@@ -10,10 +10,10 @@ export const Collapsibles = () => {
 
   const handleClick = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
-    // scrollRef.current.scrollIntoView({
-    //   behavior: 'smooth',
-    //   block: 'start',
-    // });
+    scrollRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   };
 
   const items = [
@@ -47,7 +47,6 @@ export const Collapsibles = () => {
               href='#marketplace'
               onClick={() => handleClick(index)}
               id={item.id}
-              style={{ color: "black" }}
             >
               <h2>{item.title}</h2>
             </a>
