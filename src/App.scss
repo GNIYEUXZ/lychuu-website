@@ -241,7 +241,7 @@ a {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 9999999;
+    z-index: 999;
 
     &:hover {
         transform: scale(1.05);
@@ -509,23 +509,6 @@ a {
     .navbar .navbar-logo img {
         height: 25px;
     }
-// .vendor-container{
-//     bottom: 40px;
-//     right: 0px;
-// }
-//     .vendor {
-//         background-color: #F5F5F5;
-//         border-top-left-radius: 10px;
-//         border-bottom-left-radius: 10px;
-//         background-image: none;
-//         width: 110px;
-//         height: 20px;
-//         span {
-//             margin: 0;
-//             font-family: "Gooddog";
-//             font-size: 16px;
-//         }
-//     }
 
 .vendor-container{
     bottom: 35px;
